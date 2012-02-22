@@ -30,5 +30,4 @@ public class HostingWaitMenu extends GuiMenu {
     public void keyTyped(KeyEvent arg0) {
     }
 
-
 }

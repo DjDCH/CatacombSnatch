@@ -5,7 +5,6 @@ import com.mojang.mojam.entity.mob.Team;
 import com.mojang.mojam.gui.Font;
 import com.mojang.mojam.screen.*;
 
-
 public class ShopItem extends Building {
 
     private int facing = 0;

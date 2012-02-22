@@ -4,7 +4,6 @@ import java.awt.event.KeyEvent;
 
 import com.mojang.mojam.screen.*;
 
-
 public class WinMenu extends GuiMenu {
     private int selectedItem = 0;
     private final int gameWidth;
@@ -29,10 +28,8 @@ public class WinMenu extends GuiMenu {
 
         super.render(screen);
 
-        if (winningPlayer == 1)
-        screen.blit(Art.lordLard[0][6], (gameWidth - 128) / 2 - 40, 190 + selectedItem * 40);
-        if (winningPlayer == 2)
-        screen.blit(Art.herrSpeck[0][6], (gameWidth - 128) / 2 - 40, 190 + selectedItem * 40);
+        if (winningPlayer == 1) screen.blit(Art.lordLard[0][6], (gameWidth - 128) / 2 - 40, 190 + selectedItem * 40);
+        if (winningPlayer == 2) screen.blit(Art.herrSpeck[0][6], (gameWidth - 128) / 2 - 40, 190 + selectedItem * 40);
     }
 
     @Override

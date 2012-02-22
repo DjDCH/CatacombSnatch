@@ -131,7 +131,6 @@ public class TurnSynchronizer {
         synchedRandom.setSeed(synchedSeed);
     }
 
-
     private class TurnInfo {
 
         public boolean isCommandsPopped;
@@ -168,7 +167,5 @@ public class TurnSynchronizer {
 //            }
 //        }
     }
-
-
 
 }

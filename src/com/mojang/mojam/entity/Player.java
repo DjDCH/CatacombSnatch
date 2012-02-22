@@ -229,8 +229,6 @@ public class Player extends Mob implements LootCollector {
             }
         }
 
-
-
         if (carrying != null) {
             carrying.setPos(pos.x, pos.y - 20);
             carrying.tick();

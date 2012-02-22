@@ -51,7 +51,7 @@ public class Notifications {
         for (int i = 0; i < notes.size(); i++) {
 
         }
-        for (Note n: notes) {
+        for (Note n : notes) {
             n.tick();
         }
     }

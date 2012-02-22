@@ -6,14 +6,12 @@ import com.mojang.mojam.math.BB;
 import com.mojang.mojam.network.TurnSynchronizer;
 import com.mojang.mojam.screen.*;
 
-
 public class Building extends Mob implements IUsable {
     public static final int SPAWN_INTERVAL = 60;
     public static final int MIN_BUILDING_DISTANCE = 1700; // Sqr
 
     public int spawnTime = 0;
     public boolean highlight = false;
-
 
     public Building(double x, double y, int team) {
         super(x, y, team);
@@ -69,7 +67,6 @@ public class Building extends Mob implements IUsable {
     public void slideMove(double xa, double ya) {
         super.move(xa, ya);
     }
-
 
     //
     // Upgrade

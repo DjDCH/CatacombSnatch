@@ -4,7 +4,6 @@ import java.awt.event.KeyEvent;
 
 import com.mojang.mojam.screen.*;
 
-
 public class TitleMenu extends GuiMenu {
 
     public static final int START_GAME_ID = 1000;

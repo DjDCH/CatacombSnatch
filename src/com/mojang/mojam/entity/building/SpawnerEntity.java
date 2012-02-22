@@ -5,7 +5,6 @@ import com.mojang.mojam.entity.mob.*;
 import com.mojang.mojam.network.TurnSynchronizer;
 import com.mojang.mojam.screen.*;
 
-
 public class SpawnerEntity extends Building {
     public static final int SPAWN_INTERVAL = 60 * 4;
 

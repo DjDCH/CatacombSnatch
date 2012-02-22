@@ -2,8 +2,6 @@ package com.mojang.mojam;
 
 import java.awt.Point;
 
-
-
 public class MouseButtons {
 
     private boolean[] currentState = new boolean[4];

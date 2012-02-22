@@ -7,7 +7,6 @@ import com.mojang.mojam.entity.mob.*;
 import com.mojang.mojam.level.tile.Tile;
 import com.mojang.mojam.screen.*;
 
-
 public class Turret extends Building {
 
     private int delayTicks = 0;

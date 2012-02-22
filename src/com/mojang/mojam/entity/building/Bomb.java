@@ -8,7 +8,6 @@ import com.mojang.mojam.entity.animation.LargeBombExplodeAnimation;
 import com.mojang.mojam.entity.mob.*;
 import com.mojang.mojam.screen.*;
 
-
 public class Bomb extends Building {
 
     public static final double BOMB_DISTANCE = 50;

@@ -1,6 +1,5 @@
 package com.mojang.mojam.network;
 
-
 public abstract class NetworkCommand extends Packet {
 
     @Override

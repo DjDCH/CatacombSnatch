@@ -6,7 +6,7 @@ import com.mojang.mojam.screen.Screen;
 
 public class EnemyDieAnimation extends Animation {
     public EnemyDieAnimation(double x, double y) {
-        super(x, y, TurnSynchronizer.synchedRandom.nextInt(10) + 40); //@random
+        super(x, y, TurnSynchronizer.synchedRandom.nextInt(10) + 40); // @random
     }
 
     public void render(Screen screen) {

@@ -1,6 +1,5 @@
 package com.mojang.mojam.entity.mob;
 
-
 import com.mojang.mojam.entity.Entity;
 import com.mojang.mojam.entity.building.TreasurePile;
 import com.mojang.mojam.level.tile.*;

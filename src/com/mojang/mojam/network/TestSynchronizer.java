@@ -39,7 +39,6 @@ public class TestSynchronizer {
         thread1.start();
 //        thread2.start();
 
-
     }
 
     private static class PlayThread extends Thread implements PacketListener {

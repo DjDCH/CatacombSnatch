@@ -475,7 +475,6 @@ public class Level {
 
         screen.setOffset(0, 0);
 
-
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 int i = x + y * width;
@@ -503,7 +502,6 @@ public class Level {
         }
         screen.blit(Art.panel, 0, screen.h - 80);
         screen.blit(minimap, 429, screen.h - 80 + 5);
-
 
         Font.draw(screen, "Lord Lard: " + player1Score * 100 / TARGET_SCORE + "%", 140, screen.h - 20);
         Font.draw(screen, "Herr Von Speck: " + player2Score * 100 / TARGET_SCORE + "%", 56, screen.h - 36);

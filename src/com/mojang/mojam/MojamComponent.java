@@ -405,7 +405,6 @@ public class MojamComponent extends Canvas implements Runnable, MouseMotionListe
             TitleMenu menu = new TitleMenu(GAME_WIDTH, GAME_HEIGHT);
             addMenu(menu);
 
-
         } else if (button.getId() == TitleMenu.START_GAME_ID) {
             clearMenus();
             isMultiplayer = false;

@@ -8,7 +8,7 @@ public class SandTile extends Tile {
     public void init(Level level, int x, int y) {
         super.init(level, x, y);
         img = 5;
-        minimapColor = Art.floorTileColors[img&7][img/8];
+        minimapColor = Art.floorTileColors[img & 7][img / 8];
     }
 
     public void render(Screen screen) {

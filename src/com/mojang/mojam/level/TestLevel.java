@@ -4,7 +4,6 @@ import com.mojang.mojam.math.Vec2;
 
 public class TestLevel {
 
-
     static final public int[][] tiles = {
             {
                     1, 1, 1, 1, 1, 1

@@ -178,7 +178,6 @@ public abstract class Mob extends Entity {
         }
     }
 
-
     @Override
     public void collide(Entity entity, double xa, double ya) {
         xd += xa * 0.4;

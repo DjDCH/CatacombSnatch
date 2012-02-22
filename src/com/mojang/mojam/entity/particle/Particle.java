@@ -40,6 +40,6 @@ public class Particle extends Entity {
     }
 
     public void render(Screen screen) {
-        screen.blit(Art.bullets[1][0], pos.x - 8, pos.y - 8  - z);
+        screen.blit(Art.bullets[1][0], pos.x - 8, pos.y - 8 - z);
     }
 }
