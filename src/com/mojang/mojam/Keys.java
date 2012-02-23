@@ -32,10 +32,16 @@ public class Keys {
 
     private List<Key> all = new ArrayList<Key>();
 
-    public Key up = new Key();
-    public Key down = new Key();
-    public Key left = new Key();
-    public Key right = new Key();
+    public Key move_up = new Key();
+    public Key move_down = new Key();
+    public Key move_left = new Key();
+    public Key move_right = new Key();
+
+    public Key aim_up = new Key();
+    public Key aim_down = new Key();
+    public Key aim_left = new Key();
+    public Key aim_right = new Key();
+
     public Key fire = new Key();
     public Key build = new Key();
     public Key use = new Key();

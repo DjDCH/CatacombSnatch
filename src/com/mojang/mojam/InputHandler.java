@@ -11,20 +11,20 @@ public class InputHandler implements KeyListener {
     private Map<Integer, Key> mappings = new HashMap<Integer, Key>();
 
     public InputHandler(Keys keys) {
-        mappings.put(KeyEvent.VK_UP, keys.up);
-        mappings.put(KeyEvent.VK_DOWN, keys.down);
-        mappings.put(KeyEvent.VK_LEFT, keys.left);
-        mappings.put(KeyEvent.VK_RIGHT, keys.right);
+        mappings.put(KeyEvent.VK_UP, keys.aim_up);
+        mappings.put(KeyEvent.VK_DOWN, keys.aim_down);
+        mappings.put(KeyEvent.VK_LEFT, keys.aim_left);
+        mappings.put(KeyEvent.VK_RIGHT, keys.aim_right);
 
-        mappings.put(KeyEvent.VK_NUMPAD8, keys.up);
-        mappings.put(KeyEvent.VK_NUMPAD2, keys.down);
-        mappings.put(KeyEvent.VK_NUMPAD4, keys.left);
-        mappings.put(KeyEvent.VK_NUMPAD6, keys.right);
+//        mappings.put(KeyEvent.VK_NUMPAD8, keys.move_up);
+//        mappings.put(KeyEvent.VK_NUMPAD2, keys.move_down);
+//        mappings.put(KeyEvent.VK_NUMPAD4, keys.move_left);
+//        mappings.put(KeyEvent.VK_NUMPAD6, keys.move_right);
 
-        mappings.put(KeyEvent.VK_W, keys.up);
-        mappings.put(KeyEvent.VK_S, keys.down);
-        mappings.put(KeyEvent.VK_A, keys.left);
-        mappings.put(KeyEvent.VK_D, keys.right);
+        mappings.put(KeyEvent.VK_W, keys.move_up);
+        mappings.put(KeyEvent.VK_S, keys.move_down);
+        mappings.put(KeyEvent.VK_A, keys.move_left);
+        mappings.put(KeyEvent.VK_D, keys.move_right);
 
         mappings.put(KeyEvent.VK_SPACE, keys.fire);
         mappings.put(KeyEvent.VK_ALT, keys.fire);

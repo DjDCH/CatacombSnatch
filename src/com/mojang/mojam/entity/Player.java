@@ -81,6 +81,8 @@ public class Player extends Mob implements LootCollector {
         }
         double xa = 0;
         double ya = 0;
+        double axa = 0.0D;
+        double aya = 0.0D;
         if (flashTime > 0) {
             flashTime = 0;
         }
@@ -93,23 +95,35 @@ public class Player extends Mob implements LootCollector {
         if (muzzleTicks > 0) {
             muzzleTicks--;
         }
-        if (keys.up.isDown || keys.down.isDown || keys.left.isDown || keys.right.isDown) {
+        if (keys.move_up.isDown || keys.move_down.isDown || keys.move_left.isDown || keys.move_right.isDown) {
             if ((carrying == null && steps % 10 == 0) || (steps % 20 == 0)) {
                 MojamComponent.soundPlayer.playSound("/sound/Step " + (TurnSynchronizer.synchedRandom.nextInt(2) + 1) + ".wav", (float) pos.x, (float) pos.y, true);
             }
             steps++;
         }
-        if (keys.up.isDown) {
+        if (keys.move_up.isDown) {
             ya--;
         }
-        if (keys.down.isDown) {
+        if (keys.move_down.isDown) {
             ya++;
         }
-        if (keys.left.isDown) {
+        if (keys.move_left.isDown) {
             xa--;
         }
-        if (keys.right.isDown) {
+        if (keys.move_right.isDown) {
             xa++;
+        }
+        if (this.keys.aim_up.isDown) {
+            aya -= 1.0D;
+        }
+        if (this.keys.aim_down.isDown) {
+            aya += 1.0D;
+        }
+        if (this.keys.aim_left.isDown) {
+            axa -= 1.0D;
+        }
+        if (this.keys.aim_right.isDown) {
+            axa += 1.0D;
         }
 
         /* DEBUG BEGIN */
@@ -155,7 +169,13 @@ public class Player extends Mob implements LootCollector {
 //      }
       /* DEBUG END */
 
-        if (!keys.fire.isDown && xa * xa + ya * ya != 0) {
+        if (axa * axa + aya * aya != 0.0D) {
+            xAim *= 0.7D;
+            yAim *= 0.7D;
+            xAim += axa;
+            yAim += aya;
+            facing = ((int) (Math.atan2(-xAim, yAim) * 8.0D / 6.283185307179586D + 8.5D) & 0x7);
+        } else if ((!keys.fire.isDown && !keys.aim_up.isDown && !keys.aim_down.isDown && !keys.aim_left.isDown && !keys.aim_right.isDown) && (xa * xa + ya * ya != 0.0D)) {
             xAim *= 0.7;
             yAim *= 0.7;
             xAim += xa;
@@ -215,7 +235,7 @@ public class Player extends Mob implements LootCollector {
         yBump *= 0.8;
         muzzleImage = (muzzleImage + 1) & 3;
 
-        if (carrying == null && keys.fire.isDown) {
+        if (carrying == null && (keys.fire.isDown || keys.aim_up.isDown || keys.aim_down.isDown || keys.aim_left.isDown || keys.aim_right.isDown)) {
             wasShooting = true;
             if (takeDelay > 0) {
                 takeDelay--;
