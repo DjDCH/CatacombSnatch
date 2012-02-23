@@ -4,7 +4,10 @@ import java.util.Random;
 
 import com.mojang.mojam.*;
 import com.mojang.mojam.entity.animation.SmokePuffAnimation;
+import com.mojang.mojam.entity.building.Bomb;
 import com.mojang.mojam.entity.building.Building;
+import com.mojang.mojam.entity.building.Harvester;
+import com.mojang.mojam.entity.building.Turret;
 import com.mojang.mojam.entity.loot.*;
 import com.mojang.mojam.entity.mob.*;
 import com.mojang.mojam.entity.particle.Sparkle;
@@ -14,6 +17,7 @@ import com.mojang.mojam.math.Vec2;
 import com.mojang.mojam.network.TurnSynchronizer;
 import com.mojang.mojam.screen.*;
 
+@SuppressWarnings("unused")
 public class Player extends Mob implements LootCollector {
 
     public static final int COST_RAIL = 10;
@@ -107,6 +111,49 @@ public class Player extends Mob implements LootCollector {
         if (keys.right.isDown) {
             xa++;
         }
+
+        /* DEBUG BEGIN */
+//      if (keys.give_money.isDown && !keys.give_money.wasDown) {
+//          score += 500;
+//      }
+//
+//      if (keys.give_turret.isDown) {
+//          Building item = null;
+//          item = new Turret(pos.x, pos.y, team);
+//          level.addEntity(item);
+//          pickup(item);
+//      }
+//
+//      if (keys.give_harvester.isDown) {
+//          Building item = null;
+//          item = new Harvester(pos.x, pos.y, team);
+//          level.addEntity(item);
+//          pickup(item);
+//      }
+//
+//      if (keys.give_bomb.isDown) {
+//          Building item = null;
+//          item = new Bomb(pos.x, pos.y);
+//          level.addEntity(item);
+//          pickup(item);
+//      }
+//
+//      if (keys.place_droid.isDown && !keys.place_droid.wasDown) {
+//          level.addEntity(new RailDroid(pos.x, pos.y, team));
+//      }
+//
+//      if (keys.team1_score.isDown && !keys.team1_score.wasDown) {
+//          level.player1Score += 10;
+//      }
+//
+//      if (keys.team2_score.isDown && !keys.team2_score.wasDown) {
+//          level.player2Score += 10;
+//      }
+//
+//      if (keys.toggle_immortal.isDown && !keys.toggle_immortal.wasDown) {
+//          isImmortal = !isImmortal;
+//      }
+      /* DEBUG END */
 
         if (!keys.fire.isDown && xa * xa + ya * ya != 0) {
             xAim *= 0.7;

@@ -36,6 +36,17 @@ public class InputHandler implements KeyListener {
         mappings.put(KeyEvent.VK_Z, keys.use);
         mappings.put(KeyEvent.VK_R, keys.build);
         mappings.put(KeyEvent.VK_E, keys.use);
+
+        /* DEBUG BEGIN */
+        mappings.put(KeyEvent.VK_1, keys.give_money);
+        mappings.put(KeyEvent.VK_2, keys.give_turret);
+        mappings.put(KeyEvent.VK_3, keys.give_harvester);
+        mappings.put(KeyEvent.VK_4, keys.give_bomb);
+        mappings.put(KeyEvent.VK_5, keys.place_droid);
+        mappings.put(KeyEvent.VK_6, keys.team1_score);
+        mappings.put(KeyEvent.VK_7, keys.team2_score);
+        mappings.put(KeyEvent.VK_8, keys.toggle_immortal);
+        /* DEBUG END */
     }
 
     public void keyPressed(KeyEvent ke) {

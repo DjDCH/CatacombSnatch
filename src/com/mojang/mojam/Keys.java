@@ -40,6 +40,17 @@ public class Keys {
     public Key build = new Key();
     public Key use = new Key();
 
+    /* DEBUG BEGIN */
+    public Key give_money = new Key();
+    public Key give_turret = new Key();
+    public Key give_harvester = new Key();
+    public Key give_bomb = new Key();
+    public Key place_droid = new Key();
+    public Key team1_score = new Key();
+    public Key team2_score = new Key();
+    public Key toggle_immortal = new Key();
+    /* DEBUG END */
+
     public void tick() {
         for (Key key : all)
             key.tick();
