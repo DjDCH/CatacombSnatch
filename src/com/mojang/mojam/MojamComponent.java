@@ -148,6 +148,12 @@ public class MojamComponent extends Canvas implements Runnable, MouseMotionListe
             level.addEntity(players[1]);
             level.addEntity(new Base(32 * Tile.WIDTH - 20, 32 * Tile.WIDTH - 20, Team.Team2));
         }
+        /* SWITCH SINGLEPLAYER SIDE BEGIN */
+//        players[0] = new Player(synchedKeys[0], level.width * Tile.WIDTH / 2 - 16, 7 * Tile.HEIGHT - 16, Team.Team2);
+//        level.addEntity(players[0]);
+//        level.addEntity(new Base(32 * Tile.WIDTH - 20, 32 * Tile.WIDTH - 20, Team.Team2));
+        /* SWITCH SINGLEPLAYER SIDE END */
+
         player = players[localId];
         player.setCanSee(true);
     }
