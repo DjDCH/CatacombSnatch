@@ -48,6 +48,7 @@ public class Turret extends Building {
         for (Entity e : entities) {
             if (!(e instanceof Mob)) continue;
             if ((e instanceof RailDroid)) continue;
+            if ((e instanceof TreasurePile)) continue;
             if (!((Mob) e).isNotFriendOf(this)) continue;
             final double dist = e.pos.distSqr(pos);
             if (dist < radiusSqr && dist < closestDist) {
