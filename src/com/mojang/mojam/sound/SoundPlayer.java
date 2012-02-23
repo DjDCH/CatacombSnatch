@@ -1,6 +1,5 @@
 package com.mojang.mojam.sound;
 
-import com.mojang.mojam.network.TurnSynchronizer;
 import java.util.*;
 
 import paulscode.sound.*;
@@ -14,6 +13,8 @@ public class SoundPlayer {
     private boolean oggPlaybackSupport = true;
     private boolean wavPlaybackSupport = true;
     private boolean muted = false;
+    private long nextMusicInterval = 0;
+    private int currentBackgroundTrack = 2;
 
     private static final String BACKGROUND_TRACK = "Background music";
     private static final int MAX_SOURCES_PER_SOUND = 5;
@@ -55,15 +56,62 @@ public class SoundPlayer {
         return false;
     }
 
-    public void startBackgroundMusic() {
-        String backgroundTrack = "/sound/Background " + (TurnSynchronizer.synchedRandom.nextInt(4) + 1) + ".ogg";
-        if (!isMuted() && hasOggPlaybackSupport() && !isPlaying(BACKGROUND_TRACK)) {
+    public void startTitleMusic() {
+        String backgroundTrack = "/sound/ThemeTitle.ogg";
+        if (!isMuted() && hasOggPlaybackSupport()) {
+            stopBackgroundMusic();
+
             soundSystem.backgroundMusic(BACKGROUND_TRACK, SoundPlayer.class.getResource(backgroundTrack), backgroundTrack, true);
         }
     }
 
+    public void startEndMusic() {
+        String backgroundTrack = "/sound/ThemeEnd.ogg";
+        if (!isMuted() && hasOggPlaybackSupport()) {
+            stopBackgroundMusic();
+
+            soundSystem.backgroundMusic(BACKGROUND_TRACK, SoundPlayer.class.getResource(backgroundTrack), backgroundTrack, true);
+        }
+    }
+
+    public void startBackgroundMusic() {
+        prepareNextTick();
+        currentBackgroundTrack = 2;
+
+        String backgroundTrack = "/sound/Background 2.ogg";
+        if (!isMuted() && hasOggPlaybackSupport()) {
+            stopBackgroundMusic();
+
+            soundSystem.backgroundMusic(BACKGROUND_TRACK, SoundPlayer.class.getResource(backgroundTrack), backgroundTrack, true);
+        }
+    }
+
+    public void nextBackgroundMusic() {
+        currentBackgroundTrack++;
+        if (currentBackgroundTrack > 4) currentBackgroundTrack = 1;
+
+        String backgroundTrack = "/sound/Background " + currentBackgroundTrack + ".ogg";
+        if (!isMuted() && hasOggPlaybackSupport()) {
+            stopBackgroundMusic();
+
+            soundSystem.backgroundMusic(BACKGROUND_TRACK, SoundPlayer.class.getResource(backgroundTrack), backgroundTrack, true);
+        }
+    }
+
+    public void tick() {
+        if (System.currentTimeMillis() / 1000 > nextMusicInterval) {
+            nextBackgroundMusic();
+
+            prepareNextTick();
+        }
+    }
+
+    protected void prepareNextTick() {
+        nextMusicInterval = (System.currentTimeMillis() / 1000) + 4 * 60;
+    }
+
     public void stopBackgroundMusic() {
-        if (hasOggPlaybackSupport()) {
+        if (hasOggPlaybackSupport() && isPlaying(BACKGROUND_TRACK)) {
             soundSystem.stop(BACKGROUND_TRACK);
         }
     }

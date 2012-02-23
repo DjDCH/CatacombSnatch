@@ -117,7 +117,7 @@ public class MojamComponent extends Canvas implements Runnable, MouseMotionListe
 
     private void init() {
         soundPlayer = new SoundPlayer();
-        soundPlayer.startBackgroundMusic();
+        soundPlayer.startTitleMusic();
 
         try {
             emptyCursor = Toolkit.getDefaultToolkit().createCustomCursor(new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB), new Point(0, 0), "empty");
@@ -307,11 +307,13 @@ public class MojamComponent extends Canvas implements Runnable, MouseMotionListe
         if (level != null) {
             if (level.player1Score >= Level.TARGET_SCORE) {
                 addMenu(new WinMenu(GAME_WIDTH, GAME_HEIGHT, 1));
+                soundPlayer.startEndMusic();
                 level = null;
                 return;
             }
             if (level.player2Score >= Level.TARGET_SCORE) {
                 addMenu(new WinMenu(GAME_WIDTH, GAME_HEIGHT, 2));
+                soundPlayer.startEndMusic();
                 level = null;
                 return;
             }
@@ -334,6 +336,8 @@ public class MojamComponent extends Canvas implements Runnable, MouseMotionListe
                     skeys.tick();
                 }
                 level.tick();
+
+                soundPlayer.tick();
             }
         }
         mouseButtons.setPosition(getMousePosition());
@@ -411,9 +415,13 @@ public class MojamComponent extends Canvas implements Runnable, MouseMotionListe
             TitleMenu menu = new TitleMenu(GAME_WIDTH, GAME_HEIGHT);
             addMenu(menu);
 
+            soundPlayer.startTitleMusic();
+
         } else if (button.getId() == TitleMenu.START_GAME_ID) {
             clearMenus();
             isMultiplayer = false;
+
+            soundPlayer.startBackgroundMusic();
 
             localId = 0;
             synchronizer = new TurnSynchronizer(this, null, 0, 1);
@@ -450,6 +458,8 @@ public class MojamComponent extends Canvas implements Runnable, MouseMotionListe
 
                                     packetLink = new NetworkPacketLink(socket);
 
+                                    soundPlayer.startBackgroundMusic();
+
                                     createServerState = 1;
                                     break;
                                 }
@@ -481,6 +491,8 @@ public class MojamComponent extends Canvas implements Runnable, MouseMotionListe
             menuStack.clear();
             isMultiplayer = true;
             isServer = false;
+
+            soundPlayer.startBackgroundMusic();
 
             try {
                 localId = 1;
